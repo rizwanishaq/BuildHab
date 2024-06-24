@@ -7,8 +7,8 @@ import {dark, light} from "@clerk/themes"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Construction Uber",
-  description: "Construction Uber",
+  title: "BuildHub",
+  description: "BuildHub is a platform for building and selling",
 };
 
 export default function RootLayout({ children }) {
