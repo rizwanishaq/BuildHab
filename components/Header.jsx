@@ -2,8 +2,12 @@ import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import Image from "next/image";
+import { checkUser } from '@/lib/checkUser'
 
-const Header = () => {
+
+const Header = async () => {
+  const user = await checkUser()
+
   const { userId } = auth();
   return (
     <>
@@ -41,9 +45,6 @@ const Header = () => {
               </Link>
             </>
           )}
-          {/* {userId && (
-                        <Link href="profile" className="text-gray-200 hover:text-white mr-4">Profile</Link>
-                    )} */}
           <div className="ml-auto">
             <UserButton afterSignOutUrl="/" />
           </div>
