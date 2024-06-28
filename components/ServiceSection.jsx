@@ -6,37 +6,37 @@ const ServicesSection = () => {
     {
       icon: FaHardHat,
       title: "Construction",
-      description: "Description of the construction service.",
+      description: "We provide comprehensive construction services, ensuring your project is completed on time and within budget.",
     },
     {
       icon: FaPaintRoller,
       title: "Painting",
-      description: "Description of the painting service.",
+      description: "Our professional painting services offer high-quality finishes for both residential and commercial properties.",
     },
     {
       icon: FaTools,
       title: "Maintenance",
-      description: "Description of the maintenance service.",
+      description: "Regular maintenance services to keep your properties in top condition, extending their lifespan.",
     },
     {
       icon: FaHome,
       title: "Renovation",
-      description: "Description of the renovation service.",
+      description: "Expert renovation services to transform and upgrade your existing spaces.",
     },
     {
       icon: FaTree,
       title: "Landscaping",
-      description: "Description of the landscaping service.",
+      description: "Creative landscaping solutions to enhance the beauty and functionality of your outdoor spaces.",
     },
     {
       icon: FaPlug,
       title: "Electrical",
-      description: "Description of the electrical service.",
+      description: "Reliable electrical services ensuring safety and efficiency in your electrical systems.",
     },
     {
       icon: FaWrench,
       title: "Plumbing",
-      description: "Description of the plumbing service.",
+      description: "Professional plumbing services, addressing all your installation and repair needs.",
     },
     {
       icon: FaPaintBrush,
