@@ -21,9 +21,9 @@ const HeroSection = () => {
             Leading Construction Solutions
           </p>
           <p className="text-base md:text-lg text-gray-200 mb-8">
-            Welcome to BuildHub Pakistan, where we bring your construction dreams to life. 
-            With a commitment to excellence and a passion for innovation, we offer a 
-            comprehensive range of construction services tailored to meet your unique needs. 
+            Welcome to BuildHub Pakistan, where we bring your construction dreams to life.
+            With a commitment to excellence and a passion for innovation, we offer a
+            comprehensive range of construction services tailored to meet your unique needs.
             Explore our services and see how we can help build your future.
           </p>
           <Link href="#contact" passHref>
