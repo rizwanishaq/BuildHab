@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { checkUser } from '@/lib/checkUser';
 import MenuToggle from './MenuToggle';
+import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
 const Header = async () => {
   const user = await checkUser();
@@ -42,10 +43,12 @@ const Header = async () => {
           </Link>
           {!userId ? (
             <>
-              <Link href="/sign-in" className="px-4 py-2 text-gray-700 hover:text-yellow-500">
+              <Link href="/sign-in" className="px-4 py-2 text-gray-700 hover:text-yellow-500 flex items-center">
+                <FaSignInAlt className="mr-1" />
                 Sign In
               </Link>
-              <Link href="/sign-up" className="px-4 py-2 text-gray-700 hover:text-yellow-500">
+              <Link href="/sign-up" className="px-4 py-2 text-gray-700 hover:text-yellow-500 flex items-center">
+                <FaUserPlus className="mr-1" />
                 Sign Up
               </Link>
             </>
@@ -53,33 +56,9 @@ const Header = async () => {
             <UserButton afterSignOutUrl="/" className="ml-auto" />
           )}
         </div>
-        <MenuToggle userId={userId}/>
-      </div>
-      <div id="mobile-menu" className="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
-        <Link href="/" className="block px-4 py-2 text-gray-700 hover:text-yellow-500">
-          Home
-        </Link>
-        <Link href="#about" className="block px-4 py-2 text-gray-700 hover:text-yellow-500">
-          About
-        </Link>
-        <Link href="#services" className="block px-4 py-2 text-gray-700 hover:text-yellow-500">
-          Services
-        </Link>
-        <Link href="#contact" className="block px-4 py-2 text-gray-700 hover:text-yellow-500">
-          Contact
-        </Link>
-        {!userId ? (
-          <>
-            <Link href="/sign-in" className="block px-4 py-2 text-gray-700 hover:text-yellow-500">
-              Sign In
-            </Link>
-            <Link href="/sign-up" className="block px-4 py-2 text-gray-700 hover:text-yellow-500">
-              Sign Up
-            </Link>
-          </>
-        ) : (
-          <UserButton afterSignOutUrl="/" className="block px-4 py-2 text-gray-700 hover:text-yellow-500" />
-        )}
+        <div className="md:hidden">
+          <MenuToggle userId={userId} />
+        </div>
       </div>
     </nav>
   );
