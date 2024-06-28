@@ -1,4 +1,3 @@
-// components/HeroSection.js
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,7 +14,7 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-black opacity-50 z-1"></div>
       <div className="container mx-auto flex items-center justify-center h-full relative z-10 px-4 md:px-6">
-        <div className="text-center text-white relative z-10">
+        <div className="text-center text-white relative z-10 max-w-lg">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">BuildHub Pakistan</h1>
           <p className="text-lg md:text-xl text-white mb-6">
             Leading Construction Solutions
@@ -36,5 +35,6 @@ const HeroSection = () => {
     </section>
   );
 };
+
 
 export default HeroSection;
