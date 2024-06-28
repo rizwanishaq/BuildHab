@@ -1,5 +1,6 @@
 // components/HeroSection.js
 import Image from 'next/image';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
@@ -17,7 +18,9 @@ const HeroSection = () => {
         <div className="text-center text-white relative z-10">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold">Build Hub Pakistan</h1>
           <p className="mt-4 text-base md:text-lg lg:text-xl">We Do Constructions</p>
-          <button className="mt-8 bg-yellow-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full">Contact Us</button>
+          <Link href="#contact" passHref>
+            <button className="mt-8 bg-yellow-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full">Contact Us</button>
+          </Link>
         </div>
       </div>
     </section>
