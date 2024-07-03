@@ -1,66 +1,55 @@
 // app/components/Header.js
-import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
-import Image from "next/image";
 import { checkUser } from '@/lib/checkUser';
-import MenuToggle from './MenuToggle';
-import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
+import { FaHardHat, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
+import MobileMenu from './MobileMenu';
+import { UserButton } from "@clerk/nextjs";
 
 const Header = async () => {
   const user = await checkUser();
   const { userId } = auth();
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        <Link href="/">
-          <div className="flex items-center cursor-pointer">
-            <Image
-              src="/logo.jpg"
-              alt="Logo"
-              width={48}
-              height={48}
-              className="mr-2 rounded-full"
-            />
-            <span className="text-xl font-bold text-gray-700 -mt-1">
-              BuildHub Pakistan
-            </span>
-          </div>
-        </Link>
-        <div className="hidden md:flex space-x-4 items-center text-gray-700">
-          <Link href="/" className="px-4 py-2 hover:text-yellow-500">
-            Home
-          </Link>
-          <Link href="#about" className="px-4 py-2 hover:text-yellow-500">
-            About
-          </Link>
-          <Link href="#services" className="px-4 py-2 hover:text-yellow-500">
-            Services
-          </Link>
-          <Link href="#contact" className="px-4 py-2 hover:text-yellow-500">
-            Contact
-          </Link>
-          {!userId ? (
-            <>
-              <Link href="/sign-in" className="px-4 py-2 text-gray-700 hover:text-yellow-500 flex items-center">
+    <header className="flex flex-col md:flex-row items-center justify-between p-4 shadow-md bg-white">
+      <Link href="/">
+      <div className="flex items-center justify-between w-full md:w-auto">
+        <div className="flex items-center space-x-1 md:space-x-2">
+          <FaHardHat className="text-2xl text-yellow-600" />
+          <div className="text-2xl font-bold text-orange-500">CraftFlow</div>
+        </div>
+        <MobileMenu userId={userId} />
+      </div>
+      </Link>
+
+      {/* Navigation for Desktop */}
+      <div className="hidden md:flex items-center space-x-4 mt-4 md:mt-0">
+        {!userId ? (
+          <>
+            <Link href="/sign-in">
+              <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded cursor-pointer hover:bg-orange-100 flex items-center focus:outline-none">
                 <FaSignInAlt className="mr-1" />
                 Sign In
-              </Link>
-              <Link href="/sign-up" className="px-4 py-2 text-gray-700 hover:text-yellow-500 flex items-center">
+              </button>
+            </Link>
+            <Link href="/sign-up">
+              <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded cursor-pointer hover:bg-orange-100 flex items-center focus:outline-none">
                 <FaUserPlus className="mr-1" />
                 Sign Up
-              </Link>
-            </>
-          ) : (
-            <UserButton afterSignOutUrl="/" className="ml-auto" />
-          )}
-        </div>
-        <div className="md:hidden">
-          <MenuToggle userId={userId} />
-        </div>
+              </button>
+            </Link>
+            <Link href="/">
+          <button className="border border-orange-500 text-orange-500 px-4 py-2 rounded cursor-pointer hover:bg-orange-100 focus:outline-none">
+            Join as Doctor
+          </button>
+        </Link>
+          </>
+        ) : (
+          <UserButton afterSignOutUrl="/" className="ml-auto" />
+        )}
+        
       </div>
-    </nav>
+    </header>
   );
 };
 
